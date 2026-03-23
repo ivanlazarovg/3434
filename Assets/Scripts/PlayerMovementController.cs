@@ -4,6 +4,7 @@ public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float jumpStrength;
+    [SerializeField] float bedBounceStrength;
 
     Rigidbody rb;
     Vector3 wantedMovementDirection;
@@ -33,5 +34,19 @@ public class PlayerMovementController : MonoBehaviour
     public void Jump(float strength)
     {
         rb.AddForce(Vector3.up * jumpStrength);
+    }
+
+    public void BedBounce(float strength)
+    {
+        rb.AddForce(Vector3.up * (bedBounceStrength - rb.velocity.y));
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.material.name == "Bed (Instance)")
+        {
+            BedBounce(bedBounceStrength);
+            collision.gameObject.GetComponent<BedMovementScript>().MoveBed(collision.contacts[0].point);
+        }
     }
 }
