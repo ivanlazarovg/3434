@@ -54,5 +54,6 @@ public enum ActivePowerUpType
 {
     dildo,
     enema,
-    lube
+    lube,
+    none
 }

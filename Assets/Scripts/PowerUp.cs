@@ -8,6 +8,7 @@ public abstract class PowerUp : MonoBehaviour
     public string name;
     public string description;
     public Image imageDisplay;
+
     public ActivePowerUpType powerUpType;
 
     public bool isActive;

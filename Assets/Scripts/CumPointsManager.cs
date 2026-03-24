@@ -15,6 +15,8 @@ public class CumPointsManager : MonoBehaviour
 
     public float scoreModifier = 0.001f;
 
+    public float score = 0;
+
     public float GetScoreModifier() => scoreModifier;
 
     private static CumPointsManager instance;
@@ -55,6 +57,7 @@ public class CumPointsManager : MonoBehaviour
     public void IncreasePoints(int pointsIncrease)
     {
         cumDisplay.DisplayPointsGained(pointsIncrease);
+        score += pointsIncrease;
 
         if (pointsIncrease > decayThreshold)
         {
@@ -67,7 +70,7 @@ public class CumPointsManager : MonoBehaviour
 
     public void DecayPoints()
     {
-
+        score -= decayRate / scoreModifier;
         cumDisplay.SetSliderValue(-decayRate);
 
     }

@@ -8,7 +8,7 @@ public class DildoPogo : PowerUp
     {
         isActive = true;
 
-        PowerUpManager.Instance.playerRb.AddForce(PowerUpManager.Instance.playerRb.velocity * f, ForceMode.Impulse);
+        PowerUpManager.Instance.playerRb.AddForce(PowerUpManager.Instance.playerRb.velocity * 6f, ForceMode.Impulse);
     }
 
     public override void Deactivate()
