@@ -26,9 +26,6 @@ public class PlayerCameraController : MonoBehaviour
         addedRotation += Vector3.up * Input.GetAxis("Mouse X") * rotationSpeed;
         addedRotationCam += Vector3.left * Input.GetAxis("Mouse Y") * rotationSpeed;
 
-        Debug.Log(addedRotation);
-        Debug.Log(addedRotationCam);
-
         this.transform.eulerAngles += addedRotation * Time.deltaTime;
         CameraHolder.transform.eulerAngles += addedRotationCam * Time.deltaTime;
 
