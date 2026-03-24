@@ -15,7 +15,6 @@ public class CumPointsManager : MonoBehaviour
 
     public float scoreModifier = 0.001f;
 
-    private float score = 0;
     void Start()
     {
         cumDisplay = FindAnyObjectByType<CumMeterDisplay>();
@@ -26,7 +25,7 @@ public class CumPointsManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            IncreasePoints(Random.Range(100, 500));
+            IncreasePoints(Random.Range(10, 50));
         }
 
         decayTimer += Time.deltaTime;
@@ -39,26 +38,21 @@ public class CumPointsManager : MonoBehaviour
 
     public void IncreasePoints(int pointsIncrease)
     {
-        cumDisplay.DisplayPointsGained();
+        cumDisplay.DisplayPointsGained(pointsIncrease);
 
         if (pointsIncrease > decayThreshold)
         {
             decayTimer = 0;
         }
 
-        score += pointsIncrease * scoreModifier;
-
-        cumDisplay.SetSliderValue(score);
+        cumDisplay.SetSliderValue(pointsIncrease * scoreModifier);
 
     }
 
     public void DecayPoints()
     {
-        cumDisplay.DisplayPointsGained();
 
-        score -= decayRate * Time.deltaTime;
-
-        cumDisplay.SetSliderValue(score);
+        cumDisplay.SetSliderValue(-decayRate);
 
     }
 }
