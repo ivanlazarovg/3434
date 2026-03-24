@@ -8,8 +8,11 @@ public class BedMovementScript : MonoBehaviour
 
     Rigidbody rb;
 
+    private AudioSource source;
+
     void Start()
     {
+        source = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -26,5 +29,11 @@ public class BedMovementScript : MonoBehaviour
 
         rb.AddForce(v3TargetPos);
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        source.pitch = Random.Range(0.6f, 1.4f);
+        source.PlayOneShot(source.clip);
     }
 }

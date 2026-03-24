@@ -12,6 +12,11 @@ public class PowerUpManager : MonoBehaviour
 
     public PowerUpDisplay powerUpDisplay;
 
+    private AudioSource source;
+
+    public AudioClip schlumpClip;
+    public AudioClip glugClip;
+
     public static PowerUpManager Instance
     {
         get
@@ -24,6 +29,11 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     public void DeactivatePowerUp()
     {
         if (!currentPowerUp.isActive) return;
@@ -32,6 +42,7 @@ public class PowerUpManager : MonoBehaviour
 
         powerUpDisplay.gameObject.SetActive(false);
 
+        
 
     }
 
@@ -44,6 +55,8 @@ public class PowerUpManager : MonoBehaviour
             {
                 if (!currentPowerUp.isActive)
                 {
+                    source.clip = glugClip;
+                    source.Play();
                     currentPowerUp.Activate();
 
                     if(currentPowerUp is DildoPogo)
@@ -54,9 +67,6 @@ public class PowerUpManager : MonoBehaviour
                     
             }
                 
-                    
-            
-           
         }
     }
 
@@ -64,6 +74,9 @@ public class PowerUpManager : MonoBehaviour
     {
         powerUpDisplay.gameObject.SetActive(true);
         powerUpDisplay.SetPowerUpDisplay(powerUp);
+
+        source.clip = schlumpClip;
+        source.Play();
 
         currentPowerUp = powerUp;
     }
