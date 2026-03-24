@@ -107,9 +107,10 @@ GameObject:
   - component: {fileID: 4022986230613706839}
   - component: {fileID: 5363424032755451737}
   - component: {fileID: 3408290030095097399}
+  - component: {fileID: 6625685655882687735}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,7 +125,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.31, z: 0}
-  m_LocalScale: {x: 0.22, y: 0.22, z: 0.22}
+  m_LocalScale: {x: 0.31057, y: 0.31057, z: 0.31057}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5339379012401337598}
@@ -243,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1500
-  jumpStrength: 800
+  jumpStrength: 1400
   bedBounceStrength: 1300
   gravityIncreaseWithTime: 30
 --- !u!114 &3408290030095097399
@@ -261,6 +262,20 @@ MonoBehaviour:
   rotationSpeed: 300
   minYRotation: -80
   maxYRotation: 80
+--- !u!114 &6625685655882687735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5099363386965177139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4117888e78cb75498f0d28816b26920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPowerUp: {fileID: 0}
+  playerRb: {fileID: 4022986230613706839}
 --- !u!1 &5237209442733399102
 GameObject:
   m_ObjectHideFlags: 0

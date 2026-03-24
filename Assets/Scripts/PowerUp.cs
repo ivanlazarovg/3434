@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public abstract class PowerUp : ScriptableObject
 {
-    public Image name;
+    public Sprite name;
     public string description;
-    public Image imageDisplay;
+    public Sprite imageDisplay;
+    public Color textDisplayColor;
 
     public bool isActive;
     public abstract void Activate();

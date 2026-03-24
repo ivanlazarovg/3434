@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpDisplay : MonoBehaviour
 {
+    public Image nameDisplay;
+    public Image ImageDisplay;
+
     float timerBetween = 0f;
     float timerPulse = 0f;
 
@@ -49,6 +53,13 @@ public class PowerUpDisplay : MonoBehaviour
         {
             timerBetween += Time.deltaTime;
         }
+    }
+
+    public void SetPowerUpDisplay(PowerUp power)
+    {
+        nameDisplay.sprite = power.name;
+        ImageDisplay.sprite = power.imageDisplay;
+        nameDisplay.color = power.textDisplayColor;
     }
 
     
