@@ -54,9 +54,9 @@ public class CumPointsManager : MonoBehaviour
         }
     }
 
-    public void IncreasePoints(int pointsIncrease)
+    public void IncreasePoints(float pointsIncrease)
     {
-        cumDisplay.DisplayPointsGained(pointsIncrease);
+        cumDisplay.DisplayPointsGained(Mathf.FloorToInt(pointsIncrease));
         score += pointsIncrease;
 
         if (pointsIncrease > decayThreshold)
@@ -64,6 +64,13 @@ public class CumPointsManager : MonoBehaviour
             decayTimer = 0;
         }
 
+        cumDisplay.SetSliderValue(pointsIncrease * scoreModifier);
+
+    }
+
+    public void IncreasePointsHidden(float pointsIncrease)
+    {
+        score += pointsIncrease;
         cumDisplay.SetSliderValue(pointsIncrease * scoreModifier);
 
     }
