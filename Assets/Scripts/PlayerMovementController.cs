@@ -8,6 +8,7 @@ public class PlayerMovementController : MonoBehaviour
 
     Rigidbody rb;
     Vector3 wantedMovementDirection;
+    bool grounded;
 
     void Start()
     {
@@ -27,20 +28,19 @@ public class PlayerMovementController : MonoBehaviour
 
         rb.AddForce(wantedMovementDirection * speed * Time.deltaTime);
 
-        if (Input.GetKey(KeyCode.Space)) Jump(jumpStrength);
+        if (Input.GetKeyDown(KeyCode.Space) && grounded) Jump(jumpStrength);
 
     }
 
     public void Jump(float strength)
     {
-        rb.AddForce(Vector3.up * jumpStrength);
+        rb.AddForce(Vector3.up * strength);
     }
 
     public void BedBounce(float strength)
     {
         CumPointsManager.Instance.IncreasePoints((int)(Mathf.Abs(rb.velocity.y) / CumPointsManager.Instance.GetScoreModifier()));
-        Debug.Log(rb.velocity.y);
-        rb.AddForce(Vector3.up * (bedBounceStrength - rb.velocity.y));
+        rb.AddForce(Vector3.up * (strength - rb.velocity.y));
         
     }
 
@@ -51,10 +51,19 @@ public class PlayerMovementController : MonoBehaviour
             BedBounce(bedBounceStrength);
             collision.gameObject.GetComponent<BedMovementScript>().MoveBed(collision.contacts[0].point);
 
-            if(PowerUpManager.Instance.activePowerUp.powerUpType == ActivePowerUpType.dildo)
+            if (PowerUpManager.Instance.activePowerUp.powerUpType == ActivePowerUpType.dildo)
             {
                 PowerUpManager.Instance.DeactivatePowerUp();
             }
         }
+        else 
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        grounded = false;
     }
 }

@@ -242,8 +242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c73f5546796544acb8c90aaf61479fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5000
+  speed: 1000
   jumpStrength: 500
+  bedBounceStrength: 1000
 --- !u!114 &3408290030095097399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9b194176bccfb5ab05f115195cd031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
+  rotationSpeed: 300
   minYRotation: -80
   maxYRotation: 80
 --- !u!1 &5237209442733399102
