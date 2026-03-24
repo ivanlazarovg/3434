@@ -5,10 +5,12 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpStrength;
     [SerializeField] float bedBounceStrength;
+    [SerializeField] float gravityIncreaseWithTime;
 
     Rigidbody rb;
     Vector3 wantedMovementDirection;
     bool grounded;
+    float timeSinceUngrounded;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerMovementController : MonoBehaviour
         wantedMovementDirection = this.transform.rotation * wantedMovementDirection;
 
         rb.AddForce(wantedMovementDirection * speed * Time.deltaTime);
+        rb.AddForce(Vector3.down * timeSinceUngrounded * gravityIncreaseWithTime * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded) Jump(jumpStrength);
 
@@ -65,5 +68,6 @@ public class PlayerMovementController : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         grounded = false;
+        timeSinceUngrounded = 0;
     }
 }
