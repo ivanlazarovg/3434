@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "PowerUps/DildoPogo")]
 public class DildoPogo : PowerUp
 {
     public override void Activate()

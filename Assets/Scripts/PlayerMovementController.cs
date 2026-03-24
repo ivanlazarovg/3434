@@ -51,7 +51,7 @@ public class PlayerMovementController : MonoBehaviour
             BedBounce(bedBounceStrength);
             collision.gameObject.GetComponent<BedMovementScript>().MoveBed(collision.contacts[0].point);
 
-            if(PowerUpManager.Instance.activePowerUp.powerUpType == ActivePowerUpType.dildo)
+            if(PowerUpManager.Instance.currentPowerUp is DildoPogo)
             {
                 PowerUpManager.Instance.DeactivatePowerUp();
             }
