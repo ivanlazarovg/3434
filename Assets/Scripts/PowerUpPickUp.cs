@@ -9,6 +9,13 @@ public class PowerUpPickUp : MonoBehaviour
     float rotationTime = 0;
     float sinTime = 0;
 
+    float initialHeight;
+
+    private void Start()
+    {
+        initialHeight = transform.position.y;     
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
@@ -25,6 +32,6 @@ public class PowerUpPickUp : MonoBehaviour
 
         sinTime += Time.deltaTime * 2;
 
-        transform.position = new Vector3(transform.position.x, Mathf.Sin(sinTime) * 0.5f, transform.position.z);
+        transform.position = new Vector3(transform.position.x, initialHeight  + Mathf.Sin(sinTime) * 0.5f, transform.position.z);
     }
 }

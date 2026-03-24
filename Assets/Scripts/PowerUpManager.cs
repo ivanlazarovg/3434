@@ -10,6 +10,8 @@ public class PowerUpManager : MonoBehaviour
 
     private static PowerUpManager instance;
 
+    public PowerUpDisplay powerUpDisplay;
+
     public static PowerUpManager Instance
     {
         get
@@ -21,17 +23,14 @@ public class PowerUpManager : MonoBehaviour
             return instance;
         }
     }
-    void Start()
-    {
-        
-    }
 
     public void DeactivatePowerUp()
     {
         if (!currentPowerUp.isActive) return;
         currentPowerUp.Deactivate();
         currentPowerUp  = null;
-        //RemoveDisplay
+
+        powerUpDisplay.gameObject.SetActive(false);
 
 
     }
@@ -42,8 +41,20 @@ public class PowerUpManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if(currentPowerUp != null)
+            {
                 if (!currentPowerUp.isActive)
+                {
                     currentPowerUp.Activate();
+
+                    if(currentPowerUp is DildoPogo)
+                    {
+                        DeactivatePowerUp();
+                    }
+                }
+                    
+            }
+                
+                    
             
            
         }
@@ -51,6 +62,9 @@ public class PowerUpManager : MonoBehaviour
 
     public void SetActivePowerUp(PowerUp powerUp)
     {
+        powerUpDisplay.gameObject.SetActive(true);
+        powerUpDisplay.SetPowerUpDisplay(powerUp);
+
         currentPowerUp = powerUp;
         Debug.Log("picked up power " + powerUp.name);
     }

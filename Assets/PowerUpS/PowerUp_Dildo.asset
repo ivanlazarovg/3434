@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b850187984249d47a1b94fd01943626, type: 3}
   m_Name: PowerUp_Dildo
   m_EditorClassIdentifier: 
-  name: Dildo Pogo
+  name: {fileID: 21300000, guid: 0caafd25f9b3a214f8314317f4982f39, type: 3}
   description: Send it straight down
-  imageDisplay: {fileID: 0}
+  imageDisplay: {fileID: 21300000, guid: bfe9dba7edaa85145abfe88e836c54d5, type: 3}
+  textDisplayColor: {r: 1, g: 1, b: 1, a: 1}
   isActive: 0

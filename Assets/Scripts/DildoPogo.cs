@@ -10,13 +10,15 @@ public class DildoPogo : PowerUp
         isActive = true;
 
         Debug.Log("activated");
-        Vector3 force = new Vector3(PowerUpManager.Instance.playerRb.velocity.x, -15f, PowerUpManager.Instance.playerRb.velocity.z);
-        PowerUpManager.Instance.playerRb.AddForce(force, ForceMode.Impulse);
+        Vector3 force = new Vector3(PowerUpManager.Instance.playerRb.velocity.x, -20f, PowerUpManager.Instance.playerRb.velocity.z);
+        PowerUpManager.Instance.playerRb.AddForce(force, ForceMode.VelocityChange);
+        PostProcessManager.Instance.WarpLens();
     }
 
     public override void Deactivate()
     {
         isActive = false;
+        
     }
 
     // Start is called before the first frame update
