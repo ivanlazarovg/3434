@@ -29,6 +29,7 @@ public class BedMovementScript : MonoBehaviour
 
         rb.AddForce(v3TargetPos);
 
+
     }
 
     private void OnCollisionEnter(Collision collision)

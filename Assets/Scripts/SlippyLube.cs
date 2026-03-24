@@ -5,9 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PowerUps/Lube")]
 public class SlippyLube : PowerUp
 {
+    public GameObject lubeBottlePrefab;
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        GameObject lubeInstance = Instantiate(lubeBottlePrefab, PowerUpManager.Instance.transform.position, Quaternion.identity);
+        Rigidbody rb = lubeInstance.GetComponent<Rigidbody>();
+
+        rb.AddForce(Camera.main.transform.forward * 4, ForceMode.Impulse); 
+
     }
 
     public override void Deactivate()
