@@ -38,7 +38,10 @@ public class PlayerMovementController : MonoBehaviour
 
     public void BedBounce(float strength)
     {
+        CumPointsManager.Instance.IncreasePoints((int)(Mathf.Abs(rb.velocity.y) / CumPointsManager.Instance.GetScoreModifier()));
+        Debug.Log(rb.velocity.y);
         rb.AddForce(Vector3.up * (bedBounceStrength - rb.velocity.y));
+        
     }
 
     void OnCollisionEnter(Collision collision)

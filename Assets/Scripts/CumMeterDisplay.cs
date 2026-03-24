@@ -20,7 +20,7 @@ public class CumMeterDisplay : MonoBehaviour
 
     public void DisplayPointsGained(int pointIncrease)
     {
-        Vector3 positionRandomized = cumSlider.handleRect.position + new Vector3(0, Random.Range(15, 35), 0);
+        Vector3 positionRandomized = cumSlider.handleRect.position + new Vector3(0, Random.Range(25, 45), 0);
         GameObject textInstance = Instantiate(scoreTextPrefab, positionRandomized, Quaternion.identity, cumSlider.transform.parent);
         textInstance.GetComponent<TextMeshProUGUI>().text = pointIncrease.ToString();
 
@@ -36,19 +36,27 @@ public class CumMeterDisplay : MonoBehaviour
 
         while(t < 1)
         {
-            t += Time.deltaTime * 2;
-            textInstance.transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(textPopUpScale, textPopUpScale, textPopUpScale), t);
+            t += Time.deltaTime * (1+(1-t)) * 2;
+            textInstance.transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(textPopUpScale, textPopUpScale, textPopUpScale) * 2, t);
+            textInstance.transform.position = position;
+            yield return null;
+        }
+        t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime * 5;
+            textInstance.transform.localScale = Vector3.Lerp(new Vector3(textPopUpScale, textPopUpScale, textPopUpScale) * 2, new Vector3(textPopUpScale, textPopUpScale, textPopUpScale), t);
             textInstance.transform.position = position;
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.3f);
 
         t = 0;
 
         while (t < 1)
         {
-            t += Time.deltaTime * 2;
+            t += Time.deltaTime * (1 + (1-t) * 2);
             textInstance.transform.localScale = Vector3.Lerp(new Vector3(textPopUpScale, textPopUpScale, textPopUpScale), Vector3.zero, t);
             yield return null;
         }

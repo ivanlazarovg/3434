@@ -15,6 +15,22 @@ public class CumPointsManager : MonoBehaviour
 
     public float scoreModifier = 0.001f;
 
+    public float GetScoreModifier() => scoreModifier;
+
+    private static CumPointsManager instance;
+
+    public static CumPointsManager Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                instance = FindAnyObjectByType<CumPointsManager>();
+            }
+            return instance;
+        }
+    }
+
     void Start()
     {
         cumDisplay = FindAnyObjectByType<CumMeterDisplay>();
