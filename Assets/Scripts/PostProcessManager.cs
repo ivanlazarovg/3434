@@ -30,7 +30,6 @@ public class PostProcessManager : MonoBehaviour
     private void Update()
     {
         lensDistortion.intensity.value = Mathf.Clamp(PowerUpManager.Instance.playerRb.velocity.y * lensWarpIntensity, -80, 80);
-        Debug.Log("velocity " + PowerUpManager.Instance.playerRb.velocity.y);
     }
 
     public void WarpLens()

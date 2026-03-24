@@ -66,7 +66,6 @@ public class PowerUpManager : MonoBehaviour
         powerUpDisplay.SetPowerUpDisplay(powerUp);
 
         currentPowerUp = powerUp;
-        Debug.Log("picked up power " + powerUp.name);
     }
 }
 

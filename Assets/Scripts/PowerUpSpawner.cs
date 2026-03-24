@@ -29,7 +29,6 @@ public class PowerUpSpawner : MonoBehaviour
         possibleSpawnLocations = new Dictionary<Transform, GameObject>();
         foreach (var t in transforms)
         {
-            Debug.Log(t);
             possibleSpawnLocations.Add(t, null);
         }
 
@@ -51,7 +50,6 @@ public class PowerUpSpawner : MonoBehaviour
     {
         numberOfPickups++;
         KeyValuePair<Transform, GameObject>[] kvps = possibleSpawnLocations.Where(x => x.Value == null).ToArray();
-        Debug.Log(kvps.Length);
         Transform currentPos = kvps[Random.Range(0, kvps.Length)].Key;
         possibleSpawnLocations[currentPos] = Instantiate(possiblePowerUps[0], currentPos.position, Quaternion.identity);
     }
@@ -59,6 +57,8 @@ public class PowerUpSpawner : MonoBehaviour
     public void RemovePickup(GameObject toBeRemoved) 
     {
         numberOfPickups--;
+        Debug.Log(numberOfPickups);
+        Debug.Log(toBeRemoved.name);
         Transform trans = possibleSpawnLocations.Where(x => x.Value == toBeRemoved).First().Key;
         possibleSpawnLocations[trans] = null;
     }
