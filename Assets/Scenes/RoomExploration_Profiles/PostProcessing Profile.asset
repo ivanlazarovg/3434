@@ -21,10 +21,10 @@ MonoBehaviour:
     value: 0
   intensityX:
     overrideState: 1
-    value: 0.222
+    value: 0.496
   intensityY:
     overrideState: 1
-    value: 0.23
+    value: 0.496
   centerX:
     overrideState: 0
     value: 0
