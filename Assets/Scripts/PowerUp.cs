@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public abstract class PowerUp : ScriptableObject
 {
-    public string name;
+    public Image name;
     public string description;
     public Image imageDisplay;
 
