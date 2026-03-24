@@ -14,6 +14,7 @@ public class PowerUpPickUp : MonoBehaviour
         if(other.tag == "Player")
         {
             PowerUpManager.Instance.SetActivePowerUp(powerUpToPickUp);
+            PowerUpSpawner.Instance.RemovePickup(this.gameObject);
             Destroy(gameObject);
         }
     }
