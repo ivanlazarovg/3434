@@ -15,8 +15,8 @@ public class BedMovementScript : MonoBehaviour
 
     public void MoveBed(Vector3 landingPosition)
     {
-        Vector2 pos = new Vector2(this.transform.position.x, this.transform.position.y);
-        Vector2 landingPos = new Vector2(landingPosition.x, landingPosition.y);
+        Vector2 pos = new Vector2(this.transform.position.x, this.transform.position.z);
+        Vector2 landingPos = new Vector2(landingPosition.x, landingPosition.z * 2);
 
         Vector2 targetPos = landingPos - pos;
 
