@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpManager : MonoBehaviour
 {
-    public PowerUp activePowerUp;
+    public PowerUp currentPowerUp;
 
     public Rigidbody playerRb;
 
@@ -27,9 +27,10 @@ public class PowerUpManager : MonoBehaviour
     }
 
     public void DeactivatePowerUp()
-    { 
-       // activePowerUp.Deactivate();
-       // activePowerUp = null;
+    {
+        if (!currentPowerUp.isActive) return;
+        currentPowerUp.Deactivate();
+        currentPowerUp  = null;
         //RemoveDisplay
 
 
@@ -40,13 +41,18 @@ public class PowerUpManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            activePowerUp.Activate();
-            if (!activePowerUp.isActive)
-            {
-               
-            }
+            if(currentPowerUp != null)
+                if (!currentPowerUp.isActive)
+                    currentPowerUp.Activate();
+            
            
         }
+    }
+
+    public void SetActivePowerUp(PowerUp powerUp)
+    {
+        currentPowerUp = powerUp;
+        Debug.Log("picked up power " + powerUp.name);
     }
 }
 
