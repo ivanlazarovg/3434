@@ -2934,9 +2934,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possiblePowerUps:
+  - {fileID: 6676582068208723371, guid: a0f4602443297a94aaa605e650117f06, type: 3}
   - {fileID: 6676582068208723371, guid: b739d9c66487cfe479431d7aa0c42081, type: 3}
-  maxNumberOfPickups: 2
-  timeBetweenPickupSpawns: 6
+  maxNumberOfPickups: 4
+  timeBetweenPickupSpawns: 2
 --- !u!4 &1013510041
 Transform:
   m_ObjectHideFlags: 0

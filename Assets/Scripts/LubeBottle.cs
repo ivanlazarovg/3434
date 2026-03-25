@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class LubeBottle : MonoBehaviour
 {
-
+    AudioSource source;
     private void Start()
     {
+        source = GetComponent<AudioSource>();
+        source.Play();
         Invoke("DestroyThis", 3f);
     }
     private void OnCollisionEnter(Collision collision)

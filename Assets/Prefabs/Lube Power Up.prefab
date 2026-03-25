@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6676582068208723371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -188,7 +188,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2eaec0f112bcc53498123cc3c2b3efdb, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8765421967379957288, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
+    - {fileID: 3468230687938459987, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
+    - {fileID: 604360960182207361, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
+    - {fileID: 8352562214857444215, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
