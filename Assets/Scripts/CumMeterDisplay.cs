@@ -82,9 +82,17 @@ public class CumMeterDisplay : MonoBehaviour
     public void SetSliderValue(float valueToAdd)
     {
         currentStartingValue = cumSlider.value;
-        currentEndingValue = cumSlider.value + valueToAdd;
+        currentEndingValue = valueToAdd;
 
         increaseTimer = 0;
+    }
+
+    public void SetSliderValueInstant(float valueToAdd)
+    {
+        currentStartingValue = cumSlider.value;
+        currentEndingValue = valueToAdd;
+
+        increaseTimer = 1;
     }
 
 

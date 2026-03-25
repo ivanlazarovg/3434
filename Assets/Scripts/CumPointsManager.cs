@@ -12,10 +12,15 @@ public class CumPointsManager : MonoBehaviour
     public int decayThreshold;
 
     public float decayRate;
+    public float decayDelay;
 
     public float scoreModifier = 0.001f;
 
     public float score = 0;
+    public float maxScore = 0;
+
+    public bool walshed;
+    public float walshDecayMult;
 
     public float GetScoreModifier() => scoreModifier;
 
@@ -38,17 +43,11 @@ public class CumPointsManager : MonoBehaviour
         cumDisplay = FindAnyObjectByType<CumMeterDisplay>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            IncreasePoints(Random.Range(10, 50));
-        }
-
         decayTimer += Time.deltaTime;
 
-        if (decayTimer > 1)
+        if (decayTimer > decayDelay)
         {
             DecayPoints();
         }
@@ -69,21 +68,27 @@ public class CumPointsManager : MonoBehaviour
             decayTimer = 0;
         }
 
-        cumDisplay.SetSliderValue(pointsIncrease * scoreModifier);
-
-    }
-
-    public void IncreasePointsHidden(float pointsIncrease)
-    {
-        score += pointsIncrease;
-        cumDisplay.SetSliderValue(pointsIncrease * scoreModifier);
+        cumDisplay.SetSliderValue(score / maxScore);
 
     }
 
     public void DecayPoints()
     {
-        score -= decayRate / scoreModifier;
-        cumDisplay.SetSliderValue(-decayRate);
+        if (walshed)
+        {
+            score -= decayRate * walshDecayMult * Time.deltaTime;
+
+        }
+        else 
+        {
+            score -= decayRate * Time.deltaTime;
+        }
+
+        if (score < 0)
+        {
+            score = 0;
+        }
+        cumDisplay.SetSliderValueInstant(score / maxScore);
 
     }
 }
