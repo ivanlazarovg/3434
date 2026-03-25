@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1423681644713469019}
   - component: {fileID: 2536503989362397080}
   m_Layer: 0
-  m_Name: Lube Power Up
+  m_Name: Enema Power Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9a5b347781c6445978f3d5753bf3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpToPickUp: {fileID: 11400000, guid: 85eef5e2840f6914488f42a19b6dc58a, type: 2}
+  powerUpToPickUp: {fileID: 11400000, guid: 7a0f3763a48050a4aa2a0b67cee1664b, type: 2}
 --- !u!1001 &7264299669537949560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,22 +131,22 @@ PrefabInstance:
     - target: {fileID: 2135838119278137232, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 2534964839176971238, guid: 65aff064eaa919149859a8415f0138cc, type: 3}
+      objectReference: {fileID: 4711208715938537054, guid: 10027e8618b68f3499affd5ae0e826e4, type: 3}
     - target: {fileID: 2395930729158580879, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_Name
       value: LubeBottle
       objectReference: {fileID: 0}
     - target: {fileID: 3029760233548333109, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 12.169637
+      value: 18.085297
       objectReference: {fileID: 0}
     - target: {fileID: 3029760233548333109, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 12.169637
+      value: 18.085297
       objectReference: {fileID: 0}
     - target: {fileID: 3029760233548333109, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 12.169637
+      value: 18.085297
       objectReference: {fileID: 0}
     - target: {fileID: 3029760233548333109, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3029760233548333109, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.151
+      value: -0.1986
       objectReference: {fileID: 0}
     - target: {fileID: 3029760233548333109, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -191,7 +191,7 @@ PrefabInstance:
     - target: {fileID: 4197621200398007130, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2eaec0f112bcc53498123cc3c2b3efdb, type: 2}
+      objectReference: {fileID: 2100000, guid: dfd4513c4b367344e9ac6771c51d687b, type: 2}
     m_RemovedComponents:
     - {fileID: 8765421967379957288, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
     - {fileID: 3468230687938459987, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}

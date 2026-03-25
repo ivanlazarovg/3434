@@ -37,10 +37,12 @@ public class BedMovementScript : MonoBehaviour
         if (PowerUpManager.Instance.isLubed)
         {
             rb.drag = 0;
+            rb.angularDrag = 0;
         }
         else
         {
-            rb.drag = 1.5f;
+            rb.drag = 3f;
+            rb.angularDrag = 0.5f;
         }
     }
 

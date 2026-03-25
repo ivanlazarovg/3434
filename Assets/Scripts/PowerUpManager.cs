@@ -21,6 +21,16 @@ public class PowerUpManager : MonoBehaviour
     private float lubeTimer;
 
     [Space(10)]
+    [Header("Enema")]
+
+    public LineRenderer lineRenderer;
+    public AudioSource enemaSource;
+    public float enemaDuration;
+    public bool enemaSpray;
+
+    float enemaTimer = 0;
+
+    [Space(10)]
     [Header("Audio")]
 
     private AudioSource source;
@@ -51,29 +61,31 @@ public class PowerUpManager : MonoBehaviour
         currentPowerUp.Deactivate();
         currentPowerUp  = null;
 
+        powerUpDisplay.ClearPowerUpDisplay();
         powerUpDisplay.displayMain.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (currentPowerUp == null) return;
+
         if (Input.GetMouseButtonDown(0))
         {
-            if(currentPowerUp != null)
-            {
+
                 if (!currentPowerUp.isActive)
                 {
                     source.clip = glugClip;
                     source.Play();
                     currentPowerUp.Activate();
 
-                    if(currentPowerUp is DildoPogo || currentPowerUp is SlippyLube)
+                    if(currentPowerUp is SlippyLube)
                     {
                         DeactivatePowerUp();
                     }
                 }
                     
-            }
+            
                 
         }
 
@@ -85,6 +97,22 @@ public class PowerUpManager : MonoBehaviour
             {
                 isLubed = false;
             }
+        }
+
+        if(currentPowerUp.isActive && currentPowerUp is EnemaJetpack)
+        {
+
+            if(enemaTimer < enemaDuration)
+            {
+                enemaTimer += Time.deltaTime;
+                
+            }
+            else
+            {
+                DeactivatePowerUp();
+                enemaTimer = 0;
+            }
+           
         }
     }
 

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: {fileID: 21300000, guid: 9b694a1596537a945aa5390223c4f102, type: 3}
   description: 
-  imageDisplay: {fileID: 21300000, guid: bfe9dba7edaa85145abfe88e836c54d5, type: 3}
-  textDisplayColor: {r: 0, g: 0, b: 0, a: 0}
+  imageDisplay: {fileID: 21300000, guid: 4c836742fc5ebfd45932dc27dc5e9630, type: 3}
+  textDisplayColor: {r: 1, g: 1, b: 1, a: 1}
+  displayMaterial: {fileID: 2100000, guid: a1a4c22f2e59de242bce7edc5e43e664, type: 2}
+  mesh: {fileID: 2534964839176971238, guid: 65aff064eaa919149859a8415f0138cc, type: 3}
   isActive: 0
   lubeBottlePrefab: {fileID: 2395930729158580879, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}

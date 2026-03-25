@@ -10,6 +10,8 @@ public class PowerUpDisplay : MonoBehaviour
     public Image ImageDisplay;
     public Image CumVeil;
 
+    public MeshFilter PowerUpMesh;
+
     float timerBetween = 0f;
     float timerPulse = 0f;
 
@@ -71,7 +73,16 @@ public class PowerUpDisplay : MonoBehaviour
         nameDisplay.sprite = power.name;
         ImageDisplay.sprite = power.imageDisplay;
         nameDisplay.color = power.textDisplayColor;
+        PowerUpMesh.mesh = power.mesh;
+        PowerUpMesh.GetComponent<MeshRenderer>().material = power.displayMaterial;
     }
 
-    
+    public void ClearPowerUpDisplay()
+    {
+        nameDisplay.color = Color.white;
+        PowerUpMesh.mesh = null;
+    }
+
+
+
 }

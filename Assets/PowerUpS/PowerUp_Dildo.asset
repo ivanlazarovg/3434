@@ -15,5 +15,7 @@ MonoBehaviour:
   name: {fileID: 21300000, guid: 0caafd25f9b3a214f8314317f4982f39, type: 3}
   description: Send it straight down
   imageDisplay: {fileID: 21300000, guid: bfe9dba7edaa85145abfe88e836c54d5, type: 3}
-  textDisplayColor: {r: 1, g: 1, b: 1, a: 1}
+  textDisplayColor: {r: 1, g: 0.25, b: 0.9570621, a: 1}
+  displayMaterial: {fileID: 2100000, guid: 6f9cd65a99bcec44fb2275f7ad0e0549, type: 2}
+  mesh: {fileID: 2534964839176971238, guid: c4b201d794acdff49bf02eab2bbb4f80, type: 3}
   isActive: 0

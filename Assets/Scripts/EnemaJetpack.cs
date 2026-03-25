@@ -7,12 +7,16 @@ public class EnemaJetpack : PowerUp
 {
     public override void Activate()
     {
-        throw new System.NotImplementedException();
+        isActive = true;
+        PowerUpManager.Instance.lineRenderer.enabled = true;
+        PowerUpManager.Instance.enemaSource.Play();
     }
 
     public override void Deactivate()
     {
-        throw new System.NotImplementedException();
+        isActive = false;
+        PowerUpManager.Instance.lineRenderer.enabled = false;
+        PowerUpManager.Instance.enemaSource.Stop();
     }
 
     // Start is called before the first frame update

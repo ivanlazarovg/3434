@@ -9,6 +9,9 @@ public abstract class PowerUp : ScriptableObject
     public string description;
     public Sprite imageDisplay;
     public Color textDisplayColor;
+    public Material displayMaterial;
+
+    public Mesh mesh;
 
     public bool isActive;
     public abstract void Activate();

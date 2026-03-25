@@ -12,9 +12,24 @@ public class PlayerMovementController : MonoBehaviour
     bool grounded;
     float timeSinceUngrounded;
 
+    [Header("Enema")]
+
+    Vector3 enemaVolatileOffset = Vector3.zero;
+
+    public float enemaStrength;
+    public float enemaMaxDistance;
+
+    public float volatilityRange;
+
+    float gravityIncreaseTemp;
+
+
+    float hitDistance = 0;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        gravityIncreaseTemp = gravityIncreaseWithTime;
     }
 
     void Update()
@@ -33,6 +48,38 @@ public class PlayerMovementController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded) Jump(jumpStrength);
 
+
+        if (PowerUpManager.Instance.currentPowerUp != null && PowerUpManager.Instance.currentPowerUp is EnemaJetpack && PowerUpManager.Instance.currentPowerUp.isActive)
+        {
+            EnemaCounterForce();
+        }
+        else
+        {
+            gravityIncreaseWithTime = gravityIncreaseTemp;
+            enemaVolatileOffset = Vector3.zero;
+        }
+
+    }
+
+    void EnemaCounterForce()
+    {
+        gravityIncreaseWithTime = 0;
+
+        enemaVolatileOffset = new Vector3(Mathf.Sin(Time.time * 5) * volatilityRange, Mathf.Cos(Time.time * 3) * volatilityRange , 0);
+
+        Debug.Log("volatile offset " + enemaVolatileOffset);
+
+        RaycastHit hit;
+
+
+
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, enemaMaxDistance))
+        {
+            hitDistance = hit.distance;
+            rb.AddForce((-Camera.main.transform.forward + enemaVolatileOffset) * enemaStrength);
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward + enemaVolatileOffset);
+        }
+        PowerUpManager.Instance.lineRenderer.SetPosition(1, new Vector3(enemaVolatileOffset.x, enemaVolatileOffset.y, hitDistance));
     }
 
     public void Jump(float strength)
@@ -54,14 +101,22 @@ public class PlayerMovementController : MonoBehaviour
             BedBounce(bedBounceStrength);
             collision.gameObject.GetComponent<BedMovementScript>().MoveBed(collision.contacts[0].point);
 
-
-                PostProcessManager.Instance.UnwarpLens();
+            if(PowerUpManager.Instance.currentPowerUp is DildoPogo && PowerUpManager.Instance.currentPowerUp.isActive)
+            {
+                //blah blah score stuff
+            }
             
         }
         else 
         {
             grounded = true;
         }
+
+        if (PowerUpManager.Instance.currentPowerUp is DildoPogo && PowerUpManager.Instance.currentPowerUp.isActive)
+        {
+            PowerUpManager.Instance.DeactivatePowerUp();
+        }
+
     }
 
     private void OnCollisionExit(Collision collision)
