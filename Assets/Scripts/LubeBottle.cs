@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class LubeBottle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
+        Invoke("DestroyThis", 3f);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.material.name == "Bed (Instance)")
+        {
+            PowerUpManager.Instance.SetLubeActive();
+            Destroy(gameObject);
+        }
+
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void DestroyThis()
     {
-        
+        Destroy(gameObject);
     }
 }

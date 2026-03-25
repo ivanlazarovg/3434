@@ -56,6 +56,11 @@ public class CumPointsManager : MonoBehaviour
 
     public void IncreasePoints(float pointsIncrease)
     {
+        if (PowerUpManager.Instance.isLubed)
+        {
+            pointsIncrease *= 2;
+        }
+
         cumDisplay.DisplayPointsGained(Mathf.FloorToInt(pointsIncrease));
         score += pointsIncrease;
 

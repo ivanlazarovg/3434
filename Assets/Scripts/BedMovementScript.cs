@@ -40,7 +40,7 @@ public class BedMovementScript : MonoBehaviour
         }
         else
         {
-            rb.drag = 0;
+            rb.drag = 1.5f;
         }
     }
 

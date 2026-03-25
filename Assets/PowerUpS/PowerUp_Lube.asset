@@ -17,3 +17,4 @@ MonoBehaviour:
   imageDisplay: {fileID: 21300000, guid: bfe9dba7edaa85145abfe88e836c54d5, type: 3}
   textDisplayColor: {r: 0, g: 0, b: 0, a: 0}
   isActive: 0
+  lubeBottlePrefab: {fileID: 2395930729158580879, guid: 848bebe261972fe4bbe8778ca1d10fc0, type: 3}
