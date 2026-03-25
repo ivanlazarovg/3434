@@ -11,8 +11,8 @@ public class SlippyLube : PowerUp
         GameObject lubeInstance = Instantiate(lubeBottlePrefab, PowerUpManager.Instance.transform.position, Quaternion.identity);
         Rigidbody rb = lubeInstance.GetComponent<Rigidbody>();
 
-        rb.AddForce(Camera.main.transform.forward * 4, ForceMode.Impulse); 
-
+        rb.AddForce(Camera.main.transform.forward * 4, ForceMode.Impulse);
+        rb.AddTorque(Camera.main.transform.forward * 3f);
     }
 
     public override void Deactivate()

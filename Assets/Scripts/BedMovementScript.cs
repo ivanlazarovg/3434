@@ -32,6 +32,18 @@ public class BedMovementScript : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (PowerUpManager.Instance.isLubed)
+        {
+            rb.drag = 0;
+        }
+        else
+        {
+            rb.drag = 0;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         source.pitch = Random.Range(0.6f, 1.4f);

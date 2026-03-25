@@ -7,17 +7,12 @@ public class DildoPogo : PowerUp
 {
     public override void Activate()
     {
-        isActive = true;
-
-        Debug.Log("activated");
         Vector3 force = new Vector3(PowerUpManager.Instance.playerRb.velocity.x, -20f, PowerUpManager.Instance.playerRb.velocity.z);
         PowerUpManager.Instance.playerRb.AddForce(force, ForceMode.VelocityChange);
-        PostProcessManager.Instance.WarpLens();
     }
 
     public override void Deactivate()
     {
-        isActive = false;
         
     }
 

@@ -12,6 +12,15 @@ public class PowerUpManager : MonoBehaviour
 
     public PowerUpDisplay powerUpDisplay;
 
+    [Space(10)]
+    [Header("Lube")]
+
+    public float lubeTime;
+    public bool isLubed;
+
+    [Space(10)]
+    [Header("Audio")]
+
     private AudioSource source;
 
     public AudioClip schlumpClip;
