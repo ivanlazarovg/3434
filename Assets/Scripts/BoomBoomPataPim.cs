@@ -16,6 +16,9 @@ public class BoomBoomPataPim : MonoBehaviour
 
     [SerializeField] AudioSource boomboompatapim;
 
+    public GameObject Matt;
+    public GameObject Walsh;
+
     private void Start()
     {
         currentTimeUntilActive = Random.Range(timeBetweenActivationsMin, timeBetweenActivationsMax);
@@ -36,6 +39,16 @@ public class BoomBoomPataPim : MonoBehaviour
         if (active)
         {
             CumPointsManager.Instance.IncreasePointsHidden(-pointsLostPerSecond * Time.deltaTime);
+            Matt.SetActive(true);
+            Walsh.SetActive(true);
+
+            Matt.transform.Rotate(Vector3.up, Time.deltaTime * 150f);
+            Walsh.transform.Rotate(Vector3.up, -Time.deltaTime * 150f);
+        }
+        else
+        {
+            Matt.SetActive(false);
+            Walsh.SetActive(false);
         }
     }
 

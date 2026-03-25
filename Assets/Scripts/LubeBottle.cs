@@ -13,6 +13,7 @@ public class LubeBottle : MonoBehaviour
     {
         if(collision.collider.material.name == "Bed (Instance)")
         {
+            collision.gameObject.GetComponent<BedMovementScript>().MoveBed(collision.contacts[0].point);
             PowerUpManager.Instance.SetLubeActive();
             Destroy(gameObject);
         }
