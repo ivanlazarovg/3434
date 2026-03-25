@@ -85,6 +85,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 16631204d34f5724eadebe124c4c80a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5591807294997006844}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 16631204d34f5724eadebe124c4c80a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4696940479564214347}
   m_SourcePrefab: {fileID: 100100000, guid: 16631204d34f5724eadebe124c4c80a5, type: 3}
 --- !u!1 &6706384482793699708 stripped
 GameObject:
@@ -225,3 +228,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!328 &4696940479564214347
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706384482793699708}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 890aa83525b3d03468a85a6ef0bb1f86, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 3de3cefc5db4dff4999a2a69274b66ae, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 5
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []

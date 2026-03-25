@@ -12,11 +12,15 @@ public class BoomBoomPataPim : MonoBehaviour
     float currentTimeUntilActive;
     bool active;
 
+    MeshRenderer mattVid;
+
     [SerializeField] AudioSource boomboompatapim;
 
     private void Start()
     {
         currentTimeUntilActive = Random.Range(timeBetweenActivationsMin, timeBetweenActivationsMax);
+        mattVid = GetComponentsInChildren<MeshRenderer>()[1];
+        mattVid.enabled = false;
     }
 
     private void Update()
@@ -26,6 +30,7 @@ public class BoomBoomPataPim : MonoBehaviour
         {
             active = true;
             boomboompatapim.Play();
+            mattVid.enabled = true;
         }
 
         if (active)
@@ -42,6 +47,7 @@ public class BoomBoomPataPim : MonoBehaviour
             active = false;
             currentTimeUntilActive = Random.Range(timeBetweenActivationsMin, timeBetweenActivationsMax);
             CumPointsManager.Instance.IncreasePoints(pointGain);
+            mattVid.enabled = false;
         }
     }
 }
