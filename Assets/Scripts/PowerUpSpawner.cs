@@ -51,7 +51,7 @@ public class PowerUpSpawner : MonoBehaviour
         numberOfPickups++;
         KeyValuePair<Transform, GameObject>[] kvps = possibleSpawnLocations.Where(x => x.Value == null).ToArray();
         Transform currentPos = kvps[Random.Range(0, kvps.Length)].Key;
-        possibleSpawnLocations[currentPos] = Instantiate(possiblePowerUps[0], currentPos.position, Quaternion.identity);
+        possibleSpawnLocations[currentPos] = Instantiate(possiblePowerUps[Random.Range(0, possiblePowerUps.Count)], currentPos.position, Quaternion.identity);
     }
 
     public void RemovePickup(GameObject toBeRemoved) 
