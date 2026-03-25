@@ -50,7 +50,6 @@ public class PowerUpDisplay : MonoBehaviour
             {
                 timerPulse += Time.deltaTime * 4f;
                 rectTransform.localScale = Vector3.Lerp(initialScale, initialScale * 1.5f, Mathf.Sin(Mathf.Deg2Rad * timerPulse * 360));
-                Debug.Log(Mathf.Sin(timerPulse * 360));
             }
 
             else

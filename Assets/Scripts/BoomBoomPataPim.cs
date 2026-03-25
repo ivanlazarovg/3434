@@ -38,7 +38,7 @@ public class BoomBoomPataPim : MonoBehaviour
 
         if (active)
         {
-            CumPointsManager.Instance.IncreasePointsHidden(-pointsLostPerSecond * Time.deltaTime);
+            CumPointsManager.Instance.walshed = true;
             Matt.SetActive(true);
             Walsh.SetActive(true);
 
@@ -47,6 +47,7 @@ public class BoomBoomPataPim : MonoBehaviour
         }
         else
         {
+            CumPointsManager.Instance.walshed = false;
             Matt.SetActive(false);
             Walsh.SetActive(false);
         }
