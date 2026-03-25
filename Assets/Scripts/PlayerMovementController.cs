@@ -53,12 +53,17 @@ public class PlayerMovementController : MonoBehaviour
         {
             BedBounce(bedBounceStrength);
             collision.gameObject.GetComponent<BedMovementScript>().MoveBed(collision.contacts[0].point);
-
-
-                PostProcessManager.Instance.UnwarpLens();
-            
+            PostProcessManager.Instance.UnwarpLens();
         }
         else 
+        {
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.material.name != "Bed (Instance)")
         {
             grounded = true;
         }
