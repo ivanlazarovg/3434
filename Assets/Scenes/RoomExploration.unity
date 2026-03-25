@@ -5481,50 +5481,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623686975}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1633578180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6706384482793699708, guid: 1c27c7f7350801144a0e2e2b2e55cf9f, type: 3}
-  m_PrefabInstance: {fileID: 2079740415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1633578186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6222300726399099846, guid: 1c27c7f7350801144a0e2e2b2e55cf9f, type: 3}
   m_PrefabInstance: {fileID: 2079740415}
   m_PrefabAsset: {fileID: 0}
---- !u!328 &1633578187
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633578180}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 890aa83525b3d03468a85a6ef0bb1f86, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 3de3cefc5db4dff4999a2a69274b66ae, type: 2}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 5
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 1
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
-  m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 1
-  m_WaitForFirstFrame: 0
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!1 &1695393977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6725,10 +6686,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6222300726399099846, guid: 1c27c7f7350801144a0e2e2b2e55cf9f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 828856632}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6706384482793699708, guid: 1c27c7f7350801144a0e2e2b2e55cf9f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1633578187}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c27c7f7350801144a0e2e2b2e55cf9f, type: 3}
 --- !u!1 &2085264564
 GameObject:
