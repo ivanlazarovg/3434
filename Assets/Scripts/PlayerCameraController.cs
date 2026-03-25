@@ -10,12 +10,13 @@ public class PlayerCameraController : MonoBehaviour
     Vector3 addedRotationCam;
     Vector3 addedRotation;
 
-
+    PlayerMovementController controller;
 
     void Start()
     {
         CameraHolder = this.gameObject.transform.GetChild(0).gameObject;
         Cursor.lockState = CursorLockMode.Locked;
+        controller = GetComponent<PlayerMovementController>();
     }
 
     void Update()
@@ -26,8 +27,8 @@ public class PlayerCameraController : MonoBehaviour
         addedRotation += Vector3.up * Input.GetAxis("Mouse X") * rotationSpeed;
         addedRotationCam += Vector3.left * Input.GetAxis("Mouse Y") * rotationSpeed;
 
-        this.transform.eulerAngles += addedRotation * Time.deltaTime;
-        CameraHolder.transform.eulerAngles += addedRotationCam * Time.deltaTime;
+        this.transform.eulerAngles += (addedRotation + controller.enemaVolatileOffset * 15) * Time.deltaTime;
+        CameraHolder.transform.eulerAngles += (addedRotationCam + (controller.enemaVolatileOffset * 15))* Time.deltaTime;
 
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class SlippyLube : PowerUp
 {
     public GameObject lubeBottlePrefab;
+    public float lubeDuration;
     public override void Activate()
     {
         GameObject lubeInstance = Instantiate(lubeBottlePrefab, Camera.main.transform.position + (Camera.main.transform.forward * 0.4f), Quaternion.identity);

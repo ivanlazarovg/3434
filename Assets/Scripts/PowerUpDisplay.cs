@@ -9,6 +9,11 @@ public class PowerUpDisplay : MonoBehaviour
     public Image nameDisplay;
     public Image ImageDisplay;
     public Image CumVeil;
+    public Image ButtTarget;
+
+    public Transform buttPosition;
+    public CanvasScaler canvasScaler;
+    Vector2 buttViewportPos;
 
     public MeshFilter PowerUpMesh;
 
@@ -64,6 +69,18 @@ public class PowerUpDisplay : MonoBehaviour
         else
         {
             timerBetween += Time.deltaTime;
+        }
+
+        if(PowerUpManager.Instance.currentPowerUp != null && PowerUpManager.Instance.currentPowerUp is EnemaJetpack)
+        {
+            ButtTarget.enabled = true;
+            buttViewportPos = Camera.main.WorldToViewportPoint(buttPosition.transform.position);
+            ButtTarget.rectTransform.position = new Vector2(buttViewportPos.x * canvasScaler.referenceResolution.x,
+                buttViewportPos.y * canvasScaler.referenceResolution.y);
+        }
+        else
+        {
+            ButtTarget.enabled = false;
         }
     }
 

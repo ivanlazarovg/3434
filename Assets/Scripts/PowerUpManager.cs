@@ -25,7 +25,6 @@ public class PowerUpManager : MonoBehaviour
 
     public LineRenderer lineRenderer;
     public AudioSource enemaSource;
-    public float enemaDuration;
     public bool enemaSpray;
 
     float enemaTimer = 0;
@@ -68,7 +67,34 @@ public class PowerUpManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isLubed)
+        {
+            lubeTimer += Time.deltaTime;
+
+            if (lubeTimer > lubeDuration)
+            {
+                isLubed = false;
+            }
+        }
+
+
         if (currentPowerUp == null) return;
+
+        if (currentPowerUp.isActive && currentPowerUp is EnemaJetpack)
+        {
+            EnemaJetpack enema = (EnemaJetpack)currentPowerUp;
+            if (enemaTimer < enema.enemaDuration)
+            {
+                enemaTimer += Time.deltaTime;
+
+            }
+            else
+            {
+                DeactivatePowerUp();
+                enemaTimer = 0;
+            }
+
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -89,31 +115,7 @@ public class PowerUpManager : MonoBehaviour
                 
         }
 
-        if (isLubed)
-        {
-            lubeTimer += Time.deltaTime;
-
-            if(lubeTimer > lubeDuration)
-            {
-                isLubed = false;
-            }
-        }
-
-        if(currentPowerUp.isActive && currentPowerUp is EnemaJetpack)
-        {
-
-            if(enemaTimer < enemaDuration)
-            {
-                enemaTimer += Time.deltaTime;
-                
-            }
-            else
-            {
-                DeactivatePowerUp();
-                enemaTimer = 0;
-            }
-           
-        }
+       
     }
 
     public void SetActivePowerUp(PowerUp powerUp)

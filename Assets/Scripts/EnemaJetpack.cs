@@ -5,11 +5,23 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PowerUps/Enema")]
 public class EnemaJetpack : PowerUp
 {
+    public float enemaDuration;
+
+    public float pointsToGet;
+
+    public float pointsDisplayDelay;
+
+    [HideInInspector] public float pointsToDisplay;
+
+    [HideInInspector] public float timer;
+
     public override void Activate()
     {
         isActive = true;
         PowerUpManager.Instance.lineRenderer.enabled = true;
         PowerUpManager.Instance.enemaSource.Play();
+
+        pointsToDisplay = pointsToGet / (enemaDuration / pointsDisplayDelay);
     }
 
     public override void Deactivate()
@@ -17,6 +29,8 @@ public class EnemaJetpack : PowerUp
         isActive = false;
         PowerUpManager.Instance.lineRenderer.enabled = false;
         PowerUpManager.Instance.enemaSource.Stop();
+
+        timer = 0;
     }
 
     // Start is called before the first frame update

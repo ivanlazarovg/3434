@@ -14,7 +14,7 @@ public class PlayerMovementController : MonoBehaviour
 
     [Header("Enema")]
 
-    Vector3 enemaVolatileOffset = Vector3.zero;
+    [HideInInspector] public Vector3 enemaVolatileOffset = Vector3.zero;
 
     public float enemaStrength;
     public float enemaMaxDistance;
@@ -63,21 +63,29 @@ public class PlayerMovementController : MonoBehaviour
 
     void EnemaCounterForce()
     {
+        EnemaJetpack enema = (EnemaJetpack)PowerUpManager.Instance.currentPowerUp;
+
         gravityIncreaseWithTime = 0;
 
         enemaVolatileOffset = new Vector3(Mathf.Sin(Time.time * 5) * volatilityRange, Mathf.Cos(Time.time * 3) * volatilityRange , 0);
 
-        Debug.Log("volatile offset " + enemaVolatileOffset);
-
         RaycastHit hit;
-
-
-
         if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, enemaMaxDistance))
         {
             hitDistance = hit.distance;
             rb.AddForce((-Camera.main.transform.forward + enemaVolatileOffset) * enemaStrength);
             Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward + enemaVolatileOffset);
+
+            if(hit.collider.tag == "Butt")
+            {
+                enema.timer += Time.deltaTime;
+
+                if(enema.timer > enema.pointsDisplayDelay)
+                {
+                    CumPointsManager.Instance.IncreasePoints(enema.pointsToDisplay + Random.Range(-25,25));
+                    enema.timer = 0;
+                }
+            }
         }
         PowerUpManager.Instance.lineRenderer.SetPosition(1, new Vector3(enemaVolatileOffset.x, enemaVolatileOffset.y, hitDistance));
     }
