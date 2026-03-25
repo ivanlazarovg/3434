@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1423681644713469019}
   - component: {fileID: 2536503989362397080}
   m_Layer: 0
-  m_Name: PowerUp
+  m_Name: Lube Power Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
