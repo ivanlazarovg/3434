@@ -8,6 +8,7 @@ public class CumMeterDisplay : MonoBehaviour
 {
     public Slider cumSlider;
     public GameObject scoreTextPrefab;
+    public GameObject doubleScoreText;
 
     private float scoreDisplay;
 
@@ -17,6 +18,21 @@ public class CumMeterDisplay : MonoBehaviour
     float currentEndingValue;
 
     public float textPopUpScale;
+
+    [Header("Shake")]
+    Vector3 startPos;
+    float shivertimer = 0;
+
+    float shiverMultiplier1;
+    float shiverMultiplier2;
+
+    public float shiverRangeDown = 4;
+    public float shiverRangeUp = 30;
+
+    private void Start()
+    {
+        startPos = cumSlider.transform.position;
+    }
 
     public void DisplayPointsGained(int pointIncrease)
     {
@@ -74,8 +90,55 @@ public class CumMeterDisplay : MonoBehaviour
 
     private void Update()
     {
+        if (PowerUpManager.Instance.isLubed)
+        {
+            Shiver();
+            doubleScoreText.SetActive(true);
+        }
+        else
+        {
+            cumSlider.transform.position = startPos;
+            doubleScoreText.SetActive(false);
+        }
+       
         cumSlider.value = Mathf.Lerp(currentStartingValue, currentEndingValue, increaseTimer);
-
         increaseTimer += Time.deltaTime;
+    }
+
+    void Shiver()
+    {
+        cumSlider.transform.position = startPos + new Vector3(Mathf.Sin(Time.time * shiverMultiplier1), Mathf.Sin(Time.time * shiverMultiplier2), 0) * 2f;
+
+        shivertimer += Time.deltaTime;
+
+        if (shivertimer > 0.2f)
+        {
+            shiverMultiplier1 = Random.Range(shiverRangeDown, shiverRangeUp);
+            shiverMultiplier2 = Random.Range(shiverRangeDown, shiverRangeUp);
+            int randomcheck = Random.Range(1, 3);
+            int randomcheck2 = Random.Range(1, 3);
+
+            if (randomcheck == 1)
+            {
+                shiverMultiplier1 = shiverMultiplier1;
+            }
+            else
+            {
+                shiverMultiplier1 = -shiverMultiplier1;
+            }
+
+            if (randomcheck2 == 2)
+            {
+                shiverMultiplier2 = shiverMultiplier2;
+            }
+            else
+            {
+                shiverMultiplier2 = -shiverMultiplier2;
+            }
+
+            shivertimer = 0;
+
+
+        }
     }
 }

@@ -8,16 +8,16 @@ public class SlippyLube : PowerUp
     public GameObject lubeBottlePrefab;
     public override void Activate()
     {
-        GameObject lubeInstance = Instantiate(lubeBottlePrefab, PowerUpManager.Instance.transform.position, Quaternion.identity);
+        GameObject lubeInstance = Instantiate(lubeBottlePrefab, Camera.main.transform.position + (Camera.main.transform.forward * 0.4f), Quaternion.identity);
         Rigidbody rb = lubeInstance.GetComponent<Rigidbody>();
 
-        rb.AddForce(Camera.main.transform.forward * 4, ForceMode.Impulse); 
-
+        rb.AddForce(Camera.main.transform.forward * 9, ForceMode.Impulse);
+        rb.AddTorque(Camera.main.transform.forward * 3f);
     }
 
     public override void Deactivate()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     // Start is called before the first frame update

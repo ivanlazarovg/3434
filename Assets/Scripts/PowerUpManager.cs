@@ -12,6 +12,17 @@ public class PowerUpManager : MonoBehaviour
 
     public PowerUpDisplay powerUpDisplay;
 
+    [Space(10)]
+    [Header("Lube")]
+
+    public float lubeDuration;
+    public bool isLubed;
+
+    private float lubeTimer;
+
+    [Space(10)]
+    [Header("Audio")]
+
     private AudioSource source;
 
     public AudioClip schlumpClip;
@@ -36,14 +47,11 @@ public class PowerUpManager : MonoBehaviour
 
     public void DeactivatePowerUp()
     {
-        if (!currentPowerUp.isActive) return;
+        //if (!currentPowerUp.isActive) return;
         currentPowerUp.Deactivate();
         currentPowerUp  = null;
 
-        powerUpDisplay.gameObject.SetActive(false);
-
-        
-
+        powerUpDisplay.displayMain.SetActive(false);
     }
 
     // Update is called once per frame
@@ -59,7 +67,7 @@ public class PowerUpManager : MonoBehaviour
                     source.Play();
                     currentPowerUp.Activate();
 
-                    if(currentPowerUp is DildoPogo)
+                    if(currentPowerUp is DildoPogo || currentPowerUp is SlippyLube)
                     {
                         DeactivatePowerUp();
                     }
@@ -68,17 +76,33 @@ public class PowerUpManager : MonoBehaviour
             }
                 
         }
+
+        if (isLubed)
+        {
+            lubeTimer += Time.deltaTime;
+
+            if(lubeTimer > lubeDuration)
+            {
+                isLubed = false;
+            }
+        }
     }
 
     public void SetActivePowerUp(PowerUp powerUp)
     {
-        powerUpDisplay.gameObject.SetActive(true);
+        powerUpDisplay.displayMain.SetActive(true);
         powerUpDisplay.SetPowerUpDisplay(powerUp);
 
         source.clip = schlumpClip;
         source.Play();
 
         currentPowerUp = powerUp;
+    }
+
+    public void SetLubeActive()
+    {
+        lubeTimer = 0;
+        isLubed = true;
     }
 }
 

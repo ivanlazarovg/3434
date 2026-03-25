@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class PowerUpDisplay : MonoBehaviour
 {
+    public GameObject displayMain;
     public Image nameDisplay;
     public Image ImageDisplay;
+    public Image CumVeil;
 
     float timerBetween = 0f;
     float timerPulse = 0f;
@@ -25,6 +27,15 @@ public class PowerUpDisplay : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+
+        if (PowerUpManager.Instance.isLubed)
+        {
+            CumVeil.gameObject.SetActive(true);
+        }
+        else
+        {
+            CumVeil.gameObject.SetActive(false);
+        }
 
         if(timerBetween > 1f)
         {
