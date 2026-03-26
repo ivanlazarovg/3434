@@ -16,6 +16,7 @@ public class PowerUpSpawner : MonoBehaviour
     float currentTimeTillNextPickup;
 
     Dictionary<Transform, GameObject> possibleSpawnLocations;
+    bool full;
 
     void Start()
     {
@@ -39,10 +40,12 @@ public class PowerUpSpawner : MonoBehaviour
     {
         currentTimeTillNextPickup -= Time.deltaTime;
 
-        if (currentTimeTillNextPickup <= 0 && numberOfPickups < maxNumberOfPickups)
+        if (currentTimeTillNextPickup <= 0)
         {
-            SpawnPickup();
+            if (numberOfPickups < maxNumberOfPickups) SpawnPickup();
+
             currentTimeTillNextPickup = timeBetweenPickupSpawns;
+
         }
     }
 
@@ -56,9 +59,8 @@ public class PowerUpSpawner : MonoBehaviour
 
     public void RemovePickup(GameObject toBeRemoved) 
     {
+        if (numberOfPickups == maxNumberOfPickups) currentTimeTillNextPickup = timeBetweenPickupSpawns;
         numberOfPickups--;
-        Debug.Log(numberOfPickups);
-        Debug.Log(toBeRemoved.name);
         Transform trans = possibleSpawnLocations.Where(x => x.Value == toBeRemoved).First().Key;
         possibleSpawnLocations[trans] = null;
     }
