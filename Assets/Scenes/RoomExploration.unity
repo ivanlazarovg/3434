@@ -6865,6 +6865,10 @@ PrefabInstance:
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4022986230613706839, guid: 66dbe2f19dbde79e6ae86e9e99d509ec, type: 3}
+      propertyPath: m_Drag
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4022986230613706839, guid: 66dbe2f19dbde79e6ae86e9e99d509ec, type: 3}
       propertyPath: m_Mass
       value: 6
       objectReference: {fileID: 0}
@@ -6910,7 +6914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5363424032755451737, guid: 66dbe2f19dbde79e6ae86e9e99d509ec, type: 3}
       propertyPath: speed
-      value: 4000
+      value: 5500
       objectReference: {fileID: 0}
     - target: {fileID: 5363424032755451737, guid: 66dbe2f19dbde79e6ae86e9e99d509ec, type: 3}
       propertyPath: jumpStrength
