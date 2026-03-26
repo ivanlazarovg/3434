@@ -74,7 +74,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             hitDistance = hit.distance;
             rb.AddForce((-Camera.main.transform.forward + enemaVolatileOffset) * enemaStrength);
-            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward + enemaVolatileOffset);
 
             if(hit.collider.tag == "Butt")
             {
@@ -89,7 +88,7 @@ public class PlayerMovementController : MonoBehaviour
                 }
             }
         }
-        PowerUpManager.Instance.lineRenderer.SetPosition(1, new Vector3(enemaVolatileOffset.x, enemaVolatileOffset.y, hitDistance));
+        //PowerUpManager.Instance.lineRenderer.SetPosition(1, new Vector3(enemaVolatileOffset.x, enemaVolatileOffset.y, hitDistance));
     }
 
     public void Jump(float strength)

@@ -26,8 +26,10 @@ public class CumMeterDisplay : MonoBehaviour
     float shiverMultiplier1;
     float shiverMultiplier2;
 
-    public float shiverRangeDown = 4;
-    public float shiverRangeUp = 30;
+    public float shiverRangeDown = 0;
+    public float shiverRangeUp = 45;
+
+    public AnimationCurve pointsDisplayScaleCurve;
 
     private void Start()
     {
@@ -36,24 +38,25 @@ public class CumMeterDisplay : MonoBehaviour
 
     public void DisplayPointsGained(int pointIncrease)
     {
-        Vector3 positionRandomized = cumSlider.handleRect.position + new Vector3(0, Random.Range(25, 45), 0);
+        Vector3 positionRandomized = cumSlider.handleRect.position + new Vector3(0, Random.Range(35, 55), 0);
         GameObject textInstance = Instantiate(scoreTextPrefab, positionRandomized, Quaternion.identity, cumSlider.transform.parent);
         textInstance.GetComponent<TextMeshProUGUI>().text = pointIncrease.ToString();
 
 
-        StartCoroutine(PopAndShrink(textInstance, positionRandomized));
+        StartCoroutine(PopAndShrink(textInstance, positionRandomized, pointIncrease));
     }
 
-    private IEnumerator PopAndShrink(GameObject textInstance, Vector3 position)
+    private IEnumerator PopAndShrink(GameObject textInstance, Vector3 position, int pointIncrease)
     {
         textInstance.transform.localScale = Vector3.zero;
 
         float t = 0;
+        Vector3 pointsAdjustedScale = new Vector3(textPopUpScale, textPopUpScale, textPopUpScale) * pointsDisplayScaleCurve.Evaluate((float)pointIncrease / 5000);
 
-        while(t < 1)
+        while (t < 1)
         {
             t += Time.deltaTime * (1+(1-t)) * 2;
-            textInstance.transform.localScale = Vector3.Lerp(Vector3.zero, new Vector3(textPopUpScale, textPopUpScale, textPopUpScale) * 2, t);
+            textInstance.transform.localScale = Vector3.Lerp(Vector3.zero, pointsAdjustedScale, t);
             textInstance.transform.position = position;
             yield return null;
         }
@@ -61,12 +64,12 @@ public class CumMeterDisplay : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime * 5;
-            textInstance.transform.localScale = Vector3.Lerp(new Vector3(textPopUpScale, textPopUpScale, textPopUpScale) * 2, new Vector3(textPopUpScale, textPopUpScale, textPopUpScale), t);
+            textInstance.transform.localScale = Vector3.Lerp(pointsAdjustedScale, new Vector3(textPopUpScale, textPopUpScale, textPopUpScale), t);
             textInstance.transform.position = position;
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.3f);
+        //yield return new WaitForSeconds(0.3f);
 
         t = 0;
 
