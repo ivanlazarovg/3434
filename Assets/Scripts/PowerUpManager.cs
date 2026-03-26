@@ -140,6 +140,14 @@ public class PowerUpManager : MonoBehaviour
         lubeTimer = 0;
         isLubed = true;
     }
+
+    private void OnDisable()
+    {
+        if(currentPowerUp != null)
+        {
+            currentPowerUp.isActive = false;
+        }
+    }
 }
 
 public enum ActivePowerUpType
