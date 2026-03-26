@@ -328,9 +328,9 @@ MonoBehaviour:
   bedBounceStrength: 4000
   gravityIncreaseWithTime: 60
   enemaVolatileOffset: {x: 0, y: 0, z: 0}
-  enemaStrength: 11
+  enemaStrength: 100
   enemaMaxDistance: 20
-  volatilityRange: 0.25
+  volatilityRange: 0.2
 --- !u!114 &3408290030095097399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,7 +346,7 @@ MonoBehaviour:
   rotationSpeed: 300
   minYRotation: -80
   maxYRotation: 80
-  enemaRecoilMultiplier: 45
+  enemaRecoilMultiplier: 60
 --- !u!114 &6625685655882687735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   currentPowerUp: {fileID: 0}
   playerRb: {fileID: 4022986230613706839}
   powerUpDisplay: {fileID: 0}
-  lubeDuration: 5
+  lubeDuration: 6
   isLubed: 0
   lineRenderer: {fileID: 4079247159032312848}
   enemaSource: {fileID: 4981898019671151463}
@@ -620,13 +620,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6489056933863414628}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.720662, y: -0.15857077, z: -0.074183494, w: 0.6708193}
+  m_LocalRotation: {x: -0.60797584, y: 0.58706725, z: 0.3670489, w: -0.38857767}
   m_LocalPosition: {x: 0.5317023, y: -0.0003220439, z: 1.4937042}
   m_LocalScale: {x: 0.06150223, y: 0.06150222, z: 0.06150223}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6878795044216585476}
-  m_LocalEulerAnglesHint: {x: 65.242, y: -49.757, z: -39.189}
+  m_LocalEulerAnglesHint: {x: 362.38, y: -115.4, z: -90.5}
 --- !u!198 &2438569629947431053
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -643,7 +643,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -763,7 +763,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8.6
+      scalar: 10.64
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -881,7 +881,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.81
+      scalar: 1.69
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1265,8 +1265,8 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Rotation: {x: -3.28, y: 0, z: 0}
+    m_Scale: {x: 1.31, y: 1.72, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1341,9 +1341,9 @@ ParticleSystem:
     m_TextureColorAffectsParticles: 1
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
-    randomDirectionAmount: 0.09
-    sphericalDirectionAmount: 0.1
-    randomPositionAmount: 0.07
+    randomDirectionAmount: 0.22
+    sphericalDirectionAmount: 0
+    randomPositionAmount: 0
     radius:
       value: 0.28
       mode: 0
@@ -1589,7 +1589,7 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
+          time: 0.97576904
           value: 0
           inSlope: 1
           outSlope: 1
@@ -2085,11 +2085,11 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2248,7 +2248,7 @@ ParticleSystem:
     orbitalX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.84
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2301,7 +2301,7 @@ ParticleSystem:
     orbitalY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -10.17
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2354,7 +2354,7 @@ ParticleSystem:
     orbitalZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -1.29
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2619,7 +2619,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.74
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5393,15 +5393,15 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 4
-  m_MeshDistribution: 0
+  m_MeshDistribution: 1
   m_SortMode: 0
-  m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MinParticleSize: 0.03
+  m_MaxParticleSize: 0.83
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
-  m_SortingFudge: 0
-  m_NormalDirection: 1
+  m_SortingFudge: 0.38
+  m_NormalDirection: 0.9
   m_ShadowBias: 0
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
@@ -5415,7 +5415,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
