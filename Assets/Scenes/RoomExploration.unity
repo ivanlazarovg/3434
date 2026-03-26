@@ -3963,6 +3963,10 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1243042648113196593, guid: 6dc92d322545e304d9617ca332a6ba28, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e04b2edcaa47e545aed7580f3549493, type: 2}
     - target: {fileID: 3185482140268517139, guid: 6dc92d322545e304d9617ca332a6ba28, type: 3}
       propertyPath: m_Size.x
       value: 0.13430545
@@ -4011,6 +4015,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6692227854451723254, guid: 6dc92d322545e304d9617ca332a6ba28, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 495cfe52e2999b041bca0e7fb151f801, type: 2}
     - target: {fileID: 7235275298375682366, guid: 6dc92d322545e304d9617ca332a6ba28, type: 3}
       propertyPath: m_Name
       value: Bed (1)
@@ -4038,6 +4046,14 @@ PrefabInstance:
     - target: {fileID: 7577294894360223532, guid: 6dc92d322545e304d9617ca332a6ba28, type: 3}
       propertyPath: m_Center.z
       value: 0.047220774
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141135628474480444, guid: 6dc92d322545e304d9617ca332a6ba28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141135628474480444, guid: 6dc92d322545e304d9617ca332a6ba28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
