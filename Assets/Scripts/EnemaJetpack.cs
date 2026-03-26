@@ -18,7 +18,7 @@ public class EnemaJetpack : PowerUp
     public override void Activate()
     {
         isActive = true;
-        PowerUpManager.Instance.lineRenderer.enabled = true;
+        PowerUpManager.Instance.lineRenderer.gameObject.SetActive(true);
         PowerUpManager.Instance.enemaSource.Play();
 
         pointsToDisplay = pointsToGet / (enemaDuration / pointsDisplayDelay);
@@ -27,7 +27,7 @@ public class EnemaJetpack : PowerUp
     public override void Deactivate()
     {
         isActive = false;
-        PowerUpManager.Instance.lineRenderer.enabled = false;
+        PowerUpManager.Instance.lineRenderer.gameObject.SetActive(false);
         PowerUpManager.Instance.enemaSource.Stop();
 
         timer = 0;
