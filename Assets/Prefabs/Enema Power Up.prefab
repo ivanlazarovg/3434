@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2420546224270100091}
   - component: {fileID: 553046799445459905}
   - component: {fileID: 6059781508154332234}
-  - component: {fileID: 1423681644713469019}
   - component: {fileID: 2536503989362397080}
+  - component: {fileID: 6959345094135460287}
   m_Layer: 0
   m_Name: Enema Power Up
   m_TagString: Untagged
@@ -86,8 +86,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1423681644713469019
-BoxCollider:
+--- !u!114 &2536503989362397080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676582068208723371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9a5b347781c6445978f3d5753bf3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpToPickUp: {fileID: 11400000, guid: 7a0f3763a48050a4aa2a0b67cee1664b, type: 2}
+--- !u!135 &6959345094135460287
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,21 +118,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.9
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2536503989362397080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6676582068208723371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9a5b347781c6445978f3d5753bf3a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpToPickUp: {fileID: 11400000, guid: 7a0f3763a48050a4aa2a0b67cee1664b, type: 2}
 --- !u!1001 &7264299669537949560
 PrefabInstance:
   m_ObjectHideFlags: 0

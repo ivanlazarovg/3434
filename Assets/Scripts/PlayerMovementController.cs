@@ -83,6 +83,8 @@ public class PlayerMovementController : MonoBehaviour
                 if(enema.timer > enema.pointsDisplayDelay)
                 {
                     CumPointsManager.Instance.IncreasePoints(enema.pointsToDisplay + Random.Range(-25,25));
+                    PowerUpManager.Instance.sexedSource.pitch = Random.Range(0.7f, 1.3f);
+                    PowerUpManager.Instance.sexedSource.PlayOneShot(PowerUpManager.Instance.sexedSource.clip);
                     enema.timer = 0;
                 }
             }
@@ -97,7 +99,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void BedBounce(float strength)
     {
-        CumPointsManager.Instance.IncreasePoints((int)(Mathf.Abs(rb.velocity.y) / CumPointsManager.Instance.GetScoreModifier()));
+        CumPointsManager.Instance.IncreasePoints((int)(Mathf.Abs(rb.velocity.y) * 0.5f/ CumPointsManager.Instance.GetScoreModifier()));
         rb.AddForce(Vector3.up * (strength - rb.velocity.y));
         
     }

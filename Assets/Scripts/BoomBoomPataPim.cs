@@ -16,6 +16,8 @@ public class BoomBoomPataPim : MonoBehaviour
 
     [SerializeField] AudioSource boomboompatapim;
 
+    private AudioSource stopTVSource;
+
     public GameObject Matt;
     public GameObject Walsh;
 
@@ -24,6 +26,8 @@ public class BoomBoomPataPim : MonoBehaviour
         currentTimeUntilActive = Random.Range(timeBetweenActivationsMin, timeBetweenActivationsMax);
         mattVid = GetComponentsInChildren<MeshRenderer>()[1];
         mattVid.enabled = false;
+
+        stopTVSource = transform.GetChild(0).GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -58,6 +62,8 @@ public class BoomBoomPataPim : MonoBehaviour
         if (collision.collider.material.name == "Bed (Instance)" && active)
         {
             boomboompatapim.Stop();
+            stopTVSource.Play();
+
             active = false;
             currentTimeUntilActive = Random.Range(timeBetweenActivationsMin, timeBetweenActivationsMax);
             CumPointsManager.Instance.IncreasePoints(pointGain);

@@ -25,6 +25,7 @@ public class PowerUpManager : MonoBehaviour
 
     public LineRenderer lineRenderer;
     public AudioSource enemaSource;
+    public AudioSource sexedSource;
     public bool enemaSpray;
 
     float enemaTimer = 0;

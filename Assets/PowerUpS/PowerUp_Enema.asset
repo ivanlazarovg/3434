@@ -20,7 +20,7 @@ MonoBehaviour:
   mesh: {fileID: 4711208715938537054, guid: 10027e8618b68f3499affd5ae0e826e4, type: 3}
   isActive: 0
   enemaDuration: 4
-  pointsToGet: 2000
+  pointsToGet: 30000
   pointsDisplayDelay: 0.1
-  pointsToDisplay: 50
+  pointsToDisplay: 750
   timer: 0

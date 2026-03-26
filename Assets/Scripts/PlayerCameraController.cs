@@ -5,6 +5,7 @@ public class PlayerCameraController : MonoBehaviour
     [SerializeField] float rotationSpeed;
     [SerializeField] float minYRotation;
     [SerializeField] float maxYRotation;
+    [SerializeField] float enemaRecoilMultiplier;
 
     GameObject CameraHolder;
     Vector3 addedRotationCam;
@@ -27,8 +28,8 @@ public class PlayerCameraController : MonoBehaviour
         addedRotation += Vector3.up * Input.GetAxis("Mouse X") * rotationSpeed;
         addedRotationCam += Vector3.left * Input.GetAxis("Mouse Y") * rotationSpeed;
 
-        this.transform.eulerAngles += (addedRotation + controller.enemaVolatileOffset * 15) * Time.deltaTime;
-        CameraHolder.transform.eulerAngles += (addedRotationCam + (controller.enemaVolatileOffset * 15))* Time.deltaTime;
+        this.transform.eulerAngles += (addedRotation + controller.enemaVolatileOffset * enemaRecoilMultiplier) * Time.deltaTime;
+        CameraHolder.transform.eulerAngles += (addedRotationCam + (controller.enemaVolatileOffset * enemaRecoilMultiplier))* Time.deltaTime;
 
     }
 }
