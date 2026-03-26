@@ -124,6 +124,11 @@ public class PowerUpManager : MonoBehaviour
         powerUpDisplay.displayMain.SetActive(true);
         powerUpDisplay.SetPowerUpDisplay(powerUp);
 
+        if(currentPowerUp is EnemaJetpack)
+        {
+            currentPowerUp.Deactivate();
+        }
+
         source.clip = schlumpClip;
         source.Play();
 
