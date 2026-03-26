@@ -10,6 +10,7 @@ public class PlayerCameraController : MonoBehaviour
     GameObject CameraHolder;
     Vector3 addedRotationCam;
     Vector3 addedRotation;
+    float currentYRot;
 
     PlayerMovementController controller;
 
@@ -28,8 +29,15 @@ public class PlayerCameraController : MonoBehaviour
         addedRotation += Vector3.up * Input.GetAxis("Mouse X") * rotationSpeed;
         addedRotationCam += Vector3.left * Input.GetAxis("Mouse Y") * rotationSpeed;
 
+        currentYRot += (addedRotationCam + (controller.enemaVolatileOffset * enemaRecoilMultiplier)).x * Time.deltaTime;
+        currentYRot = Mathf.Clamp(currentYRot, minYRotation, maxYRotation);
+
         this.transform.eulerAngles += (addedRotation + controller.enemaVolatileOffset * enemaRecoilMultiplier) * Time.deltaTime;
-        CameraHolder.transform.eulerAngles += (addedRotationCam + (controller.enemaVolatileOffset * enemaRecoilMultiplier))* Time.deltaTime;
+    }
+
+    private void LateUpdate()
+    {
+        CameraHolder.transform.eulerAngles = new Vector3(currentYRot, this.transform.eulerAngles.y, 0);
 
     }
 }

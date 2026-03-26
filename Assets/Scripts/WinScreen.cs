@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,7 +22,7 @@ public class WinScreen : MonoBehaviour
         float t = PlayerPrefs.GetFloat("time");
         float lastBestTime = PlayerPrefs.GetFloat("bestTime");
 
-        currentTime.text = $"Current time:{t.ToString("00:00")}";
+        currentTime.text = $"Current time:{TimeSpan.FromSeconds(t).ToString(@"mm\:ss\:ff")}";
 
         if (lastBestTime == 0)
         {
@@ -31,11 +32,11 @@ public class WinScreen : MonoBehaviour
         else if (t < lastBestTime)
         {
             PlayerPrefs.SetFloat("bestTime", t);
-            bestTime.text = $"New Record! Old Record: {lastBestTime.ToString("00:00")}";
+            bestTime.text = $"New Record! Old Record: {TimeSpan.FromSeconds(lastBestTime).ToString(@"mm\:ss\:ff")}";
         }
         else 
         {
-            bestTime.text = $"Record: {lastBestTime.ToString("00:00")}";
+            bestTime.text = $"Record: {TimeSpan.FromSeconds(lastBestTime).ToString(@"mm\:ss\:ff")}";
         }
     }
     void StartGame()

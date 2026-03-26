@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -17,7 +18,7 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
-        text.text = currentTime.ToString("00:00");
+        text.text = TimeSpan.FromSeconds(currentTime).ToString(@"mm\:ss\:ff");
 
         if (CumPointsManager.Instance.score >= CumPointsManager.Instance.maxScore)
         {
