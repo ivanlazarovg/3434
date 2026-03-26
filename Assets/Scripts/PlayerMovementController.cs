@@ -10,6 +10,7 @@ public class PlayerMovementController : MonoBehaviour
     Rigidbody rb;
     Vector3 wantedMovementDirection;
     bool grounded;
+    bool canDash;
     float timeSinceUngrounded;
 
     [Header("Enema")]
@@ -23,6 +24,7 @@ public class PlayerMovementController : MonoBehaviour
 
     float gravityIncreaseTemp;
 
+    public float dashStrength;
 
     float hitDistance = 0;
 
@@ -47,6 +49,7 @@ public class PlayerMovementController : MonoBehaviour
         rb.AddForce(Vector3.down * timeSinceUngrounded * gravityIncreaseWithTime * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded) Jump(jumpStrength);
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash) Dash();
 
 
         if (PowerUpManager.Instance.currentPowerUp != null && PowerUpManager.Instance.currentPowerUp is EnemaJetpack && PowerUpManager.Instance.currentPowerUp.isActive)
@@ -96,9 +99,15 @@ public class PlayerMovementController : MonoBehaviour
         rb.AddForce(Vector3.up * strength);
     }
 
+    public void Dash()
+    {
+        canDash = false;
+        rb.AddForce(transform.forward * dashStrength);
+    }
+
     public void BedBounce(float strength)
     {
-        CumPointsManager.Instance.IncreasePoints((int)(Mathf.Abs(rb.velocity.y) * 0.5f/ CumPointsManager.Instance.GetScoreModifier()));
+        CumPointsManager.Instance.IncreasePoints(Mathf.Abs(rb.velocity.y) * 0.5f/ CumPointsManager.Instance.GetScoreModifier());
         rb.AddForce(Vector3.up * (strength - rb.velocity.y));
         
     }
@@ -116,10 +125,10 @@ public class PlayerMovementController : MonoBehaviour
             }
             
         }
-        else 
-        {
-            grounded = true;
-        }
+
+        canDash = true;
+        grounded = true;
+        
 
         if (PowerUpManager.Instance.currentPowerUp is DildoPogo && PowerUpManager.Instance.currentPowerUp.isActive)
         {
@@ -132,5 +141,10 @@ public class PlayerMovementController : MonoBehaviour
     {
         grounded = false;
         timeSinceUngrounded = 0;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        grounded = true;
     }
 }

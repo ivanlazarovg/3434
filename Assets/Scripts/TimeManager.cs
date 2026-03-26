@@ -24,6 +24,8 @@ public class TimeManager : MonoBehaviour
         {
             Win();
         }
+
+        text.gameObject.GetComponent<RectTransform>().localScale = new Vector3((Mathf.Abs(Mathf.Sin(Time.time) ) + 0.5f) * 2, 1, 1);
     }
 
     private void Win()
