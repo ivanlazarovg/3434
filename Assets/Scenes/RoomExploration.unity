@@ -3235,6 +3235,10 @@ PrefabInstance:
       propertyPath: dashStrength
       value: 3000
       objectReference: {fileID: 0}
+    - target: {fileID: 5363424032755451737, guid: 66dbe2f19dbde79e6ae86e9e99d509ec, type: 3}
+      propertyPath: volatilityRange
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6625685655882687735, guid: 66dbe2f19dbde79e6ae86e9e99d509ec, type: 3}
       propertyPath: sexedSource
       value: 
