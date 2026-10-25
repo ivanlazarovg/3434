@@ -52,15 +52,10 @@ public class PlayerMovementController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash) Dash();
 
 
-        if (PowerUpManager.Instance.currentPowerUp != null && PowerUpManager.Instance.currentPowerUp is EnemaJetpack && PowerUpManager.Instance.currentPowerUp.isActive)
-        {
-            EnemaCounterForce();
-        }
-        else
-        {
-            gravityIncreaseWithTime = gravityIncreaseTemp;
-            enemaVolatileOffset = Vector3.zero;
-        }
+
+        gravityIncreaseWithTime = gravityIncreaseTemp;
+        enemaVolatileOffset = Vector3.zero;
+        
 
     }
 
@@ -84,9 +79,9 @@ public class PlayerMovementController : MonoBehaviour
 
                 if(enema.timer > enema.pointsDisplayDelay)
                 {
-                    CumPointsManager.Instance.IncreasePoints(enema.pointsToDisplay + Random.Range(-25,25));
-                    PowerUpManager.Instance.sexedSource.pitch = Random.Range(0.7f, 1.3f);
-                    PowerUpManager.Instance.sexedSource.PlayOneShot(PowerUpManager.Instance.sexedSource.clip);
+                    //CumPointsManager.Instance.IncreasePoints(enema.pointsToDisplay + Random.Range(-25,25));
+                    //PowerUpManager.Instance.sexedSource.pitch = Random.Range(0.7f, 1.3f);
+                    //PowerUpManager.Instance.sexedSource.PlayOneShot(PowerUpManager.Instance.sexedSource.clip);
                     enema.timer = 0;
                 }
             }
@@ -107,33 +102,26 @@ public class PlayerMovementController : MonoBehaviour
 
     public void BedBounce(float strength)
     {
-        CumPointsManager.Instance.IncreasePoints(Mathf.Abs(rb.velocity.y) * 0.5f/ CumPointsManager.Instance.GetScoreModifier());
+        //CumPointsManager.Instance.IncreasePoints(Mathf.Abs(rb.velocity.y) * 0.5f/ CumPointsManager.Instance.GetScoreModifier());
         rb.AddForce(Vector3.up * (strength - rb.velocity.y));
+
         
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.material.name == "Bed (Instance)")
+        if (collision.collider.gameObject.tag == "Bed")
         {
             BedBounce(bedBounceStrength);
             collision.gameObject.GetComponent<BedMovementScript>().MoveBed(collision.contacts[0].point);
 
-            if(PowerUpManager.Instance.currentPowerUp is DildoPogo && PowerUpManager.Instance.currentPowerUp.isActive)
-            {
-                //blah blah score stuff
-            }
-            
+
+            Debug.Log("what");
         }
 
         canDash = true;
         grounded = true;
-        
-
-        if (PowerUpManager.Instance.currentPowerUp is DildoPogo && PowerUpManager.Instance.currentPowerUp.isActive)
-        {
-            PowerUpManager.Instance.DeactivatePowerUp();
-        }
+       
 
     }
 
